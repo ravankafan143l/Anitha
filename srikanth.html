@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Masked Face Design</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+        font-family: 'Courier New', monospace;
+        overflow: hidden;
+    }
+
+    .glitch-text {
+        font-size: 60px;
+        font-weight: bold;
+        color: #0aff0a;
+        position: relative;
+        text-transform: uppercase;
+        filter: drop-shadow(0 0 10px #0aff0a);
+    }
+
+    /* Masked face effect using pseudo-elements */
+    .glitch-text::before,
+    .glitch-text::after {
+        content: "Hacked by Srikanth";
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.8;
+    }
+
+    .glitch-text::before {
+        left: 2px;
+        text-shadow: -2px 0 red;
+        animation: glitch 1s infinite linear alternate-reverse;
+    }
+
+    .glitch-text::after {
+        left: -2px;
+        text-shadow: -2px 0 blue;
+        animation: glitch 1.3s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitch {
+        0% { clip-path: inset(0 0 80% 0); }
+        20% { clip-path: inset(10% 0 50% 0); }
+        40% { clip-path: inset(40% 0 20% 0); }
+        60% { clip-path: inset(20% 0 60% 0); }
+        80% { clip-path: inset(50% 0 10% 0); }
+        100% { clip-path: inset(0 0 80% 0); }
+    }
+</style>
+</head>
+<body>
+    <div class="glitch-text">Hacked by Srikanth</div>
+</body>
+</html>
